@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="h-screen">
+  <head>
+    <meta charset="utf-8">
+    <title>Naveen Kumar</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{content-for "head"}}
+
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/personal-website-ember.css">
+    <link href="tailwind.css" rel="stylesheet">
+    {{content-for "head-footer"}}
+  </head>
+  <body class="h-full">
+    {{content-for "body"}}
+
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/personal-website-ember.js"></script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>
