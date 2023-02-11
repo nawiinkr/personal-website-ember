@@ -46,6 +46,7 @@
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^6.1.1",
     "ember-resolver": "^10.0.0",
+    "ember-screen": "^2.0.0",
     "ember-source": "~4.10.0",
     "ember-template-lint": "^5.3.1",
     "ember-welcome-page": "^6.2.0",
@@ -67,5 +68,9 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "ember-svg-jar": "^2.4.2",
+    "ember-truth-helpers": "^3.1.1"
   }
 }

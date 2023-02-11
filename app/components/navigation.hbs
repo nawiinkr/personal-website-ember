@@ -1,1 +1,18 @@
-<div>Navigation</div>
+<nav class="w-full fixed top-0 flex flex-col sm:flex-row sm:gap-5">
+{{#if (or this.isDesktop this.menuVisible)}}
+  <a href="#intro">Intro</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+{{/if}}
+</nav>
+<span
+  class="fixed right-0 cursor-pointer visible sm:hidden"
+  {{on "click" this.toggleMenu}}
+>
+  {{#if this.menuVisible}}
+    {{svg-jar "close" width="32px" height="32px"}}
+  {{else}}
+    {{svg-jar "menu_hamburger" width="32px" height="32px"}}
+  {{/if}}
+</span>
