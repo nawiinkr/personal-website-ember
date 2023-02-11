@@ -1,9 +1,29 @@
 <section
   id="intro"
-  class="h-screen bg-gradient-to-r from-sky-500 to-indigo-500 flex flex-col items-center justify-center"
+  class="h-screen bg-gradient-to-r from-sky-500 to-indigo-500 flex flex-col gap-8 items-center justify-center"
 >
-  <span class="text-4xl sm:text-6xl font-sans text-white">Naveen Kumar</span>
-  <span class="w-72 text-center"
-  {{did-insert this.initiateDynamicText}}
+  <span class="text-4xl sm:text-6xl font-sans text-white text-center">Naveen
+    Kumar</span>
+  <span
+    class="sm:w-7/12 w-10/12 text-center font-sans text-white sm:text-xl"
+    {{did-insert this.initiateDynamicText}}
   ></span>
+  <div class="flex flex-row sm:gap-8 gap-4">
+    {{#each
+      (array
+        (hash icon="facebook" href="https://www.facebook.com/nawinkr")
+        (hash icon="github" href="https://github.com/nawiinkr")
+        (hash icon="instagram" href="https://instagram.com/krnawin")
+        (hash icon="linkedin" href="https://www.linkedin.com/in/nawinkr/")
+        (hash icon="mail" href="mailto:kumar.nawin.nk@gmail.com")
+        (hash icon="mobile" href="tel:9538258604")
+        (hash icon="twitter" href="https://twitter.com/Blu_Pil_Red_Pil")
+      )
+      as |item|
+    }}
+      <a href={{item.href}} target="_blank" rel="noopener noreferrer">
+        {{svg-jar item.icon width="32px" height="32px"}}
+      </a>
+    {{/each}}
+  </div>
 </section>
