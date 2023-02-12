@@ -22,8 +22,8 @@ export default class NavigationComponent extends Component {
 
   @action
   onScroll() {
-    if(this.isDesktop){
-        this.navigationBar.classList.toggle('bg-slate-300', window.scrollY > 10);
+    if (this.isDesktop) {
+      this.navigationBar.classList.toggle('bg-slate-300', window.scrollY > 10);
     }
     this.navigationBar.classList.toggle('opacity-30', window.scrollY > 10);
   }

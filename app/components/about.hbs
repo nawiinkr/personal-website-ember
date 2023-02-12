@@ -1,3 +1,24 @@
-<section id="about" class="h-screen bg-amber-200 flex items-center justify-center">
-    About
+<section
+  id="about"
+  class="h-screen bg-gradient-to-r from-violet-500 to-fuchsia-500 flex flex-col gap-8 items-center justify-center"
+>
+  <div
+    class="flex justify-center items-center flex-col md:flex-row w-10/12 sm:w-8/12 md:w-7/12 gap-8"
+  >
+    <img
+      src="assets/images/profile_pic.jpeg"
+      class="border-1 border-black rounded-full"
+      alt="Naveen Kumar"
+    />
+    <div class="flex flex-col gap-6">
+      <span class="text-center text-white">Hey, I am Naveen. I am a graduate of
+        2014 from Delhi College of Engineering in Software Engineering. I am
+        passionate about softwares and latest technologies and my goal is to
+        pursue this passion in this field.</span>
+      <AwesomeButton {{on "click" this.navigateToAboutMe}} class="self-center">
+        Resume
+      </AwesomeButton>
+    </div>
+
+  </div>
 </section>

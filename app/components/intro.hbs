@@ -7,7 +7,7 @@
   <span
     class="sm:w-7/12 w-10/12 text-center font-sans text-white sm:text-xl"
     {{did-insert this.initiateDynamicText}}
-  ></span>
+  >{{this.message}}</span>
   <div class="flex flex-row sm:gap-8 gap-4">
     {{#each
       (array
@@ -26,4 +26,7 @@
       </a>
     {{/each}}
   </div>
+  <AwesomeButton {{on 'click' this.navigateToAboutMe}}>
+    More about me
+  </AwesomeButton>
 </section>

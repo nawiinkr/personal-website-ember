@@ -1,6 +1,6 @@
 <nav
   class="w-full fixed top-0 flex flex-col sm:flex-row sm:gap-5 transition duration-500 pt-4 pb-4 pl-2 pr-2
-    {{unless this.isDesktop 'bg-slate-300'}}"
+    {{if (and (not this.isDesktop) this.menuVisible) 'bg-slate-300'}}"
   {{did-insert this.handleMount}}
 >
   {{#each
@@ -13,13 +13,12 @@
     as |item|
   }}
     {{#if (or this.isDesktop item.fixed)}}
+      <a href={{item.href}}>{{item.title}}</a>
+    {{else}}
       <a
         href={{item.href}}
-      >{{item.title}}</a>
-    {{else}}
-        <a
-        href={{item.href}}
-        class=" overflow-hidden transition-all ease-in-out duration-500 {{if this.menuVisible 'max-h-40 mt-4 h-100' 'h-0 max-h-40 mt-0'}}"
+        class="overflow-hidden transition-all ease-in-out duration-500
+          {{if this.menuVisible 'max-h-40 mt-4 h-100' 'h-0 max-h-40 mt-0'}}"
       >{{item.title}}</a>
     {{/if}}
   {{/each}}

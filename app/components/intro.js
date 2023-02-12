@@ -1,32 +1,51 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
-const delay = ms => new Promise(res => setTimeout(res, ms));
+const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+const messages = [
+  'I am a web developer and a software engineer.',
+  'I like solving real world problems using engineering and logical skills.',
+  'I am trained in latest web tech and i enjoy every bit of it.',
+];
 
 export default class IntroComponent extends Component {
+  @tracked message = '';
+
+  async #writeMessage(msg, ms) {
+    let i = 0;
+    while (i < msg.length) {
+      await delay(ms);
+      this.message = this.message.concat(msg.charAt(i++));
+    }
+  }
+
+  async #eraseMessage(ms) {
+    while (this.message.length) {
+      await delay(ms);
+      this.message = this.message.slice(0, -1);
+    }
+  }
+
   @action
-  initiateDynamicText(element) {
-    let index = 0, strIndex = 0;
-    let xTime = false;
-    const message = [
-      'I am a web developer and a software engineer.',
-      'I like solving real world problems using engineering and logical skills.',
-      'I am trained in latest web tech and i enjoy every bit of it.',
-    ];
-    setInterval(() => {
-      if(!xTime){
-        element.textContent = message[strIndex].substring(0, index++);
-        if (index > message[strIndex].length) {
-          index = 0;
-          xTime = new Date().getTime();
-          strIndex++;
-        }
-        if(strIndex === message.length){
-          strIndex = 0;
-        }
-      }else if(new Date().getTime() - xTime > 2000){
-        xTime = false;
+  async initiateDynamicText() {
+    let index = 0;
+    while (true) {
+      this.message = '';
+      await this.#writeMessage(messages[index], 70);
+      await delay(5000);
+      await this.#eraseMessage(30);
+      if (++index >= messages.length) {
+        index = 0;
       }
-    }, 100);
+    }
+  }
+
+  @action
+  navigateToAboutMe() {
+    const section = document.querySelector('#about');
+    section.scrollIntoView({
+      behavior: 'smooth',
+    });
   }
 }
