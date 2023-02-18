@@ -36,4 +36,9 @@ export default class NavigationComponent extends Component {
   toggleMenu() {
     this.menuVisible = !this.menuVisible;
   }
+
+  @action
+  closeMenu() {
+    this.menuVisible = false;
+  }
 }

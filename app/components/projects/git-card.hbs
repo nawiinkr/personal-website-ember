@@ -1,0 +1,36 @@
+<div
+  class="w-full border-gray-200 border-2 border-solid rounded-lg bg-white flex flex-col p-3 gap-2 shadow-gray-200 hover:shadow-lg"
+>
+  <div>
+    {{@data.avatar_url}}
+    <img src={{@data.owner.avatar_url}} class="w-4 h-4 inline mr-1" />
+    <span class="font-bold">{{@data.name}}</span>
+  </div>
+  <span>{{@data.description}}</span>
+  {{#each
+    (array
+      (hash title="Clone Repo" href=@data.html_url)
+      (hash title="Browse Project")
+    )
+    as |item|
+  }}
+    <button
+      class="align-middle border-solid border-2 rounded-lg border-gray-300 py-3 text-gray-400"
+      type="button"
+    >
+      <a href={{item.href}} rel="noreferer noopener noreferrer" target="_blank">
+        {{svg-jar
+          "github"
+          width="20px"
+          height="20px"
+          class="inline text-gray-400"
+        }}
+        <span class="text-xl align-middle">{{item.title}}</span>
+      </a>
+    </button>
+  {{/each}}
+
+  <div class="text-xs">
+    <span>Updated {{date-from-now @data.updated_at addSuffix=true}}</span>
+  </div>
+</div>

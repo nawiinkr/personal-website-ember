@@ -1,20 +1,26 @@
 <section
   id="skills"
-  class="h-screen bg-gray-100 flex items-center justify-center"
+  class="h-screen bg-gray-100 flex items-center justify-center flex-col"
 >
+  <Ui::AwesomeLabel class="pb-8">
+    Skills
+  </Ui::AwesomeLabel>
   {{#let
-    (array (hash title="Technical Skills" id="id-1") (hash title="Soft Skills" id="id-2"))
+    (array
+      (hash title="Technical Skills" id="id-1")
+      (hash title="Soft Skills" id="id-2")
+    )
     as |data|
   }}
-  <div class="w-10/12">
-    <Ui::AwesomeTabs @tabs={{data}} as |register activeId|>
-      <Ui::AwesomeTabContent @id="id-1" @activeId={{activeId}}>
-        <Skills::TechnicalProgress/>
-      </Ui::AwesomeTabContent>
-      <Ui::AwesomeTabContent @id="id-2" @activeId={{activeId}}>
-        <Skills::SoftProgress/>
-      </Ui::AwesomeTabContent>
-    </Ui::AwesomeTabs>
-  </div>
+    <div class="w-10/12">
+      <Ui::AwesomeTabs @tabs={{data}} as |register activeId|>
+        <Ui::AwesomeTabContent @id="id-1" @activeId={{activeId}}>
+          <Skills::TechnicalProgress />
+        </Ui::AwesomeTabContent>
+        <Ui::AwesomeTabContent @id="id-2" @activeId={{activeId}}>
+          <Skills::SoftProgress />
+        </Ui::AwesomeTabContent>
+      </Ui::AwesomeTabs>
+    </div>
   {{/let}}
 </section>

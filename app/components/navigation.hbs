@@ -13,12 +13,13 @@
     as |item|
   }}
     {{#if (or this.isDesktop item.fixed)}}
-      <a href={{item.href}}>{{item.title}}</a>
+      <a href={{item.href}} {{on 'click' this.closeMenu}}>{{item.title}}</a>
     {{else}}
       <a
         href={{item.href}}
         class="overflow-hidden transition-all ease-in-out duration-500
           {{if this.menuVisible 'max-h-40 mt-4 h-100' 'h-0 max-h-40 mt-0'}}"
+          {{on 'click' this.closeMenu}}
       >{{item.title}}</a>
     {{/if}}
   {{/each}}

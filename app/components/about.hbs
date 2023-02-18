@@ -2,12 +2,15 @@
   id="about"
   class="h-screen bg-gradient-to-r from-violet-500 to-fuchsia-500 flex flex-col gap-8 items-center justify-center"
 >
+  <Ui::AwesomeLabel class="pb-8">
+    About me
+  </Ui::AwesomeLabel>
   <div
-    class="flex justify-center items-center flex-col md:flex-row w-10/12 sm:w-8/12 md:w-7/12 gap-8"
+    class="flex justify-center items-center flex-col lg:flex-row w-10/12 sm:w-8/12 md:w-7/12 gap-8"
   >
     <img
-      src="assets/images/profile_pic.jpeg"
-      class="border-1 border-black rounded-full"
+      src="assets/images/profile_pic.jpg"
+      class="border-1 border-black rounded-full w-40 md:w-80"
       alt="Naveen Kumar"
     />
     <div class="flex flex-col gap-6">
@@ -15,7 +18,7 @@
         2014 from Delhi College of Engineering in Software Engineering. I am
         passionate about softwares and latest technologies and my goal is to
         pursue this passion in this field.</span>
-      <Ui::AwesomeButton class="self-center">
+      <Ui::AwesomeButton class="self-center" {{on 'click' this.openResume}}>
         Resume
       </Ui::AwesomeButton>
     </div>
