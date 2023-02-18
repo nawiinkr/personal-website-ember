@@ -1,18 +1,18 @@
 <section
   id="skills"
-  class="h-screen bg-emerald-400 flex items-center justify-center"
+  class="h-screen bg-gray-100 flex items-center justify-center"
 >
   {{#let
     (array (hash title="Technical Skills" id="id-1") (hash title="Soft Skills" id="id-2"))
     as |data|
   }}
-  <div class="w-10/12 sm:w-8/12 md:w-7/12">
+  <div class="w-10/12">
     <Ui::AwesomeTabs @tabs={{data}} as |register activeId|>
       <Ui::AwesomeTabContent @id="id-1" @activeId={{activeId}}>
-        <div>1</div>
+        <Skills::TechnicalProgress/>
       </Ui::AwesomeTabContent>
       <Ui::AwesomeTabContent @id="id-2" @activeId={{activeId}}>
-        <div>2</div>
+        <Skills::SoftProgress/>
       </Ui::AwesomeTabContent>
     </Ui::AwesomeTabs>
   </div>

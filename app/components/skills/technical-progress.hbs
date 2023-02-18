@@ -1,0 +1,16 @@
+<div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+  {{#each
+    (array
+      (hash title="JavaScript" value="90")
+      (hash title="HTML" value="90")
+      (hash title="CSS" value="80")
+      (hash title="Git/Github" value="90")
+      (hash title="React JS" value="60")
+      (hash title="SAP UI5" value="90")
+      (hash title="Ember.JS" value="60")
+    )
+    as |skill|
+  }}
+    <Ui::AwesomeProgressBar @title={{skill.title}} @value={{skill.value}} />
+  {{/each}}
+</div>

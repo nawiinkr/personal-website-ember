@@ -1,0 +1,16 @@
+<div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+  {{#each
+    (array
+      (hash title="Problem Solving" value="70")
+      (hash title="Exploring Attitude" value="100")
+      (hash title="Team Player" value="80")
+      (hash title="Empathy" value="70")
+      (hash title="Organized" value="60")
+      (hash title="Collaboration" value="90")
+      (hash title="Learning attitude" value="100")
+    )
+    as |skill|
+  }}
+    <Ui::AwesomeProgressBar @title={{skill.title}} @value={{skill.value}} />
+  {{/each}}
+</div>
